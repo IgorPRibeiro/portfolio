@@ -15,10 +15,11 @@ const config: Config = {
       },
     },
     colors: {
-      "dark-nav-bar": "rgba(4, 15, 31, 0.85)",
+      "dark-nav-bar": "#040f1fd9",
       "background-dark": "#1a263c",
       "teal-400": "rgb(45 212 191)",
       red: " rgb(255,0,0)",
+      white: "#fff"
     },
     textColor: {
       "blue-sky-400": "rgb(56 189 248)",

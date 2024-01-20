@@ -1,29 +1,36 @@
 import { Inter } from "next/font/google";
 import SwitchToggle from "../SwitchToggle/SwitchToggle ";
+import { useState } from "react";
 export default function Header() {
+  const [showOptions, setShowOptions] = useState<boolean>(false);
+
   return (
     <nav className="flex items-center justify-between flex-wrap bg-dark-nav-bar p-6">
       <div className="flex w-1/12  items-center flex-shrink-0 text-white">
         <span className="font-semibold text-xl tracking-tight">Igor</span>
       </div>
-      <div className="flex w-11/12 flex-grow items-center max-sm:hidden max-md:hidden  justify-between ">
-        <div className="flex w-11/12 lg:flex-grow items-center justify-center">
-          <div className="flex flex-1 text-sm lg:flex-grow justify-around 	">
-            <div className="flex flex-row">
+      <div className="flex w-11/12 flex-grow items-center justify-between ">
+        <div
+          className={`md:static absolute bg-none lg:bg-none xl:bg-none md:bg-none max-sm:bg-dark-nav-bar md:min-h-fit min-h-[60vh] left-0 ${
+            showOptions ? "top-[8%]" : "top-[-100%]"
+          }   w-full flex items-start flex-col p-4`}
+        >
+          <div className="flex flex-1 lg:items-center text-sm lg:flex-grow md:flex-row flex-col justify-around w-full lg:align-middle 	">
+            <div className="flex content-center flex-row">
               <p className="text-teal-400 mr-1 ">01.</p>
               <a href="#responsive-header" className="  hover:text-teal-400">
                 About
               </a>
             </div>
 
-            <div className="flex lex-row">
+            <div className="flex flex-row">
               <p className="text-teal-400 mr-1">02.</p>
               <a href="#responsive-header" className="hover:text-teal-400">
                 Experience
               </a>
             </div>
 
-            <div className="flex lex-row ">
+            <div className="flex flex-row ">
               <p className="text-teal-400 mr-1">03.</p>
               <a href="#responsive-header" className=" hover:text-teal-400">
                 Work
@@ -35,22 +42,22 @@ export default function Header() {
                 Contact
               </a>
             </div>
+            <div className="ali  w-1/8 text-sm  	">
+              <SwitchToggle onSwitch={(value) => console.log(value)} />
+            </div>
           </div>
         </div>
-        <div className="flex  w-1/12 text-sm  justify-end	">
-          <SwitchToggle onSwitch={(value) => console.log(value)} />
-        </div>
       </div>
-      <div className="lg:hidden xl:hidden md:hidden">
-        <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-          <svg
-            className="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
+      <div className="absolute lg:hidden xl:hidden md:hidden right-4">
+        <button
+          onClick={() => setShowOptions(!showOptions)}
+          className="flex items-center px-3 py-2 "
+        >
+          <div className="space-y-2">
+            <div className="w-8 h-0.5 bg-white"></div>
+            <div className="w-8 h-0.5 bg-white"></div>
+            <div className="w-8 h-0.5 bg-white"></div>
+          </div>
         </button>
       </div>
     </nav>
