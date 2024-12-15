@@ -1,6 +1,7 @@
+import { colors } from "./src/constants/colors";
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,23 +9,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        background: "#0a0a0a",
+        foreground: "var(--foreground)",
+        secondary: colors.secondary,
+        highlight: colors.highlight,
+        text: colors.text,
       },
-    },
-    colors: {
-      "dark-nav-bar": "rgba(4, 15, 31, 0.85)",
-      "background-dark": "#1a263c",
-      "teal-400": "rgb(45 212 191)",
-      red: " rgb(255,0,0)",
-    },
-    textColor: {
-      "blue-sky-400": "rgb(56 189 248)",
-      "teal-400": "rgb(45 212 191)",
     },
   },
   plugins: [],
-};
-export default config;
+} satisfies Config;
